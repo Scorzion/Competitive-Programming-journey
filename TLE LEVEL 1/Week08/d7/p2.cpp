@@ -28,34 +28,43 @@ void solve(){
 	int n;
 	cin >> n;
 
-	int a[n];
+	ll a[n];
+	ll b[n];
 	for(int i=0; i<n; i++){
 		cin >> a[i];
 	}
+	for(int i=0; i<n; i++){
+		cin >> b[i];
+	}
 
-	if(n==1){
-		if(a[0]==1){
-			cout << "YES" << endl;
-			return;
+	ll ans=0;
+
+	for(int i=1; i<n; i++){
+		ll m1 = abs(a[i-1]-a[i]);
+		ll n1 = abs(b[i-1]-b[i]);
+		ll m2 = abs(a[i-1]-b[i]);
+		ll n2 = abs(b[i-1]-a[i]);
+
+		// cout << m1 <<" " <<  n1 << " ";
+		// cout << m2 <<" " << n2 << " ";
+		if(m1+n1<=m2+n2){
+			ans += (m1+n1);
+			// cout << m1 << " " << n1 << " ";
+			// cout << ans << endl;
 		}
-		else{
-			cout << "NO" << endl;
-			return;
+		
+		if(m1+n1>m2+n2){
+			// cout << a[i] << " " << b[i] << " ";
+			swap(a[i],b[i]);
+			// cout << a[i] << " " << b[i] << " ";
+			ans += abs(a[i-1]-a[i]) + abs(b[i-1]-b[i]);
+			// cout << ans << endl; 
 		}
+
 	}
 
-	sort(a, a+n);
-	int max = a[n-1];
-	int max2 = a[n-2];
-
-	if(max-max2<=1){
-		cout << "YES" << endl;
-		return;
-	}
-	else{
-		cout << "NO" << endl;
-		return;
-	}
+	cout << ans << endl;
+	return;
 }
 
 int main(){
@@ -68,11 +77,7 @@ int main(){
     cin >> t;
 
     while(t--){
-     	solve();   
+        solve();
     }
     return 0;
 }
-
-
-// tc - O(nlogn)
-// sc - O(1)

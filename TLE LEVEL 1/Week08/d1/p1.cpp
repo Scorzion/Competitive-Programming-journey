@@ -5,8 +5,7 @@
  
 #include <bits/stdc++.h>
 using namespace std;
- 
-//for input and output.
+
 void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -14,8 +13,7 @@ void init_code(){
     freopen("error.txt", "w", stderr);
     #endif 
 }
- 
-//declared few shorthands
+
 typedef unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
@@ -25,37 +23,16 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-	int n;
-	cin >> n;
+    ll a, b;
+    cin >> a >> b;
+    if(a%b==0){
+        cout << 0 << endl;
+        return;
+    }
 
-	int a[n];
-	for(int i=0; i<n; i++){
-		cin >> a[i];
-	}
-
-	if(n==1){
-		if(a[0]==1){
-			cout << "YES" << endl;
-			return;
-		}
-		else{
-			cout << "NO" << endl;
-			return;
-		}
-	}
-
-	sort(a, a+n);
-	int max = a[n-1];
-	int max2 = a[n-2];
-
-	if(max-max2<=1){
-		cout << "YES" << endl;
-		return;
-	}
-	else{
-		cout << "NO" << endl;
-		return;
-	}
+    ll n = a % b;
+    cout << b - n << endl;
+    return;
 }
 
 int main(){
@@ -68,11 +45,7 @@ int main(){
     cin >> t;
 
     while(t--){
-     	solve();   
+        solve();
     }
     return 0;
 }
-
-
-// tc - O(nlogn)
-// sc - O(1)

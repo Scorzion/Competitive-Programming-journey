@@ -5,8 +5,7 @@
  
 #include <bits/stdc++.h>
 using namespace std;
- 
-//for input and output.
+
 void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -14,8 +13,7 @@ void init_code(){
     freopen("error.txt", "w", stderr);
     #endif 
 }
- 
-//declared few shorthands
+
 typedef unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
@@ -24,38 +22,36 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-void solve(){
-	int n;
-	cin >> n;
-
-	int a[n];
-	for(int i=0; i<n; i++){
-		cin >> a[i];
-	}
-
-	if(n==1){
-		if(a[0]==1){
-			cout << "YES" << endl;
-			return;
-		}
-		else{
-			cout << "NO" << endl;
+void product(ll a[], ll n){
+	ull pro = 1;
+	for(ll i=0; i<n; i++){
+		pro *= a[i];
+		if(pro >= 1e18){
+			cout << -1 << endl;
 			return;
 		}
 	}
 
-	sort(a, a+n);
-	int max = a[n-1];
-	int max2 = a[n-2];
-
-	if(max-max2<=1){
-		cout << "YES" << endl;
+	if(pro==0){
+		cout << -1 << endl;
 		return;
 	}
 	else{
-		cout << "NO" << endl;
+		cout << pro << endl;
 		return;
 	}
+}
+
+void solve(){
+    ll n;
+    cin >> n;
+
+    ll a[n];
+    for(int i=0; i<n; i++){
+    	cin >> a[i];
+    }
+
+    product(a, n);
 }
 
 int main(){
@@ -64,15 +60,7 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
+    solve();
 
-    while(t--){
-     	solve();   
-    }
     return 0;
 }
-
-
-// tc - O(nlogn)
-// sc - O(1)
