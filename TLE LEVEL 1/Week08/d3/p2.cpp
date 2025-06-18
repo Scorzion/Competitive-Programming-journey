@@ -22,38 +22,29 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-void product(ll a[], int n){
-	ll pro = 1;
-    ll pro1 = 0;
-	for(int i=0; i<n; i++){
-		pro1 = pro;
-        pro = pro1 * a[i];
-		if(pro1 > ((ld)1e18 / (ld)a[i])){
-			cout << -1 << endl;
-			return;
-		}
-		
-	}
-
-    cout << pro << endl;
-    return;
-}
-
 void solve(){
-    int n;
-    cin >> n;
+    int a, b, k;
+    cin >> a >> b >> k;
 
-    ll a[n];
-    for(int i=0; i<n; i++){
-    	cin >> a[i];
-    	
-    	if(a[i]==0){
-    		cout << 0 << endl;
+    int cnt = 0;
+    int i=0;
+    if(a<=b){
+    	i =a;
+    }
+    else{
+    	i =b;
+    }
+    while(true){
+    	if(a%i ==0 && b%i==0){
+    		cnt++;
+    	}
+    	if(cnt==k){
+    		cout << i << endl;
     		return;
     	}
+    	i--;
     }
 
-    product(a, n);
 }
 
 int main(){
@@ -63,6 +54,5 @@ int main(){
     cin.tie(NULL);
 
     solve();
-
     return 0;
 }

@@ -22,38 +22,23 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-void product(ll a[], int n){
-	ll pro = 1;
-    ll pro1 = 0;
-	for(int i=0; i<n; i++){
-		pro1 = pro;
-        pro = pro1 * a[i];
-		if(pro1 > ((ld)1e18 / (ld)a[i])){
-			cout << -1 << endl;
-			return;
-		}
-		
-	}
-
-    cout << pro << endl;
-    return;
-}
-
-void solve(){
-    int n;
-    cin >> n;
-
-    ll a[n];
-    for(int i=0; i<n; i++){
-    	cin >> a[i];
-    	
-    	if(a[i]==0){
-    		cout << 0 << endl;
-    		return;
+void solve(ll n){
+    for(int i=2; i*i<=n; i++){
+    	int j = 0;
+    	while(n%i==0){
+    		j++;
+    		n/=i;
     	}
+        if(j>0){
+    	cout << i << "^" << j << " ";
+        }
     }
 
-    product(a, n);
+    if(n>1){
+    	cout << n << "^" << 1;
+    }
+    cout << endl;
+    return;
 }
 
 int main(){
@@ -62,7 +47,16 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    solve();
-
+    while(true){
+    ll n;
+    cin >> n;
+    
+    if(n==0){
+        break;
+    }
+    
+    solve(n);
+    
+    }
     return 0;
 }
