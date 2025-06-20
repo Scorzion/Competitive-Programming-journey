@@ -23,21 +23,21 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int n;
-    cin >> n;
+    int a, b;
+    cin >> a >> b;
 
-    int a[n];
-    for(int i=0; i<n; i++){
-    	cin >> a[i];
+    int g = b;
+    while(g>=1){
+    	int num = (b/g) - (a-1)/g;
+    	if(num>=2){
+    		break;
+    	}
+    	g--;
     }
 
-    ull ans = 0;
-    for(int i=0; i<n; i++){
-        ans += a[i]-1;
-    }
-
-    cout << ans << endl;
+    cout << g << endl;
     return;
+
 }
 
 int main(){
@@ -47,7 +47,11 @@ int main(){
     cin.tie(NULL);
 
 
-    solve();
+   	solve();
 
     return 0;
 }
+
+
+// key concept was to look for at least 2 number in range of a to b, divisible by g;
+// start iterating g from b. and g will not be greater than g and always greater than equal to 1.

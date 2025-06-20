@@ -23,20 +23,18 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int n;
-    cin >> n;
+    int a, b;
+    cin >> a >> b;
 
-    int a[n];
-    for(int i=0; i<n; i++){
-    	cin >> a[i];
+    int maxi = INT_MIN;
+    for(int i=a; i<b; i++){
+    	for(int j=i+1; j<=b; j++){
+    		int x = __gcd(i,j);
+    		maxi = max(maxi, x);
+    	}
     }
 
-    ull ans = 0;
-    for(int i=0; i<n; i++){
-        ans += a[i]-1;
-    }
-
-    cout << ans << endl;
+    cout << maxi << endl;
     return;
 }
 
@@ -47,7 +45,10 @@ int main(){
     cin.tie(NULL);
 
 
-    solve();
+   solve();
 
     return 0;
 }
+
+
+// O(n2) not good soln

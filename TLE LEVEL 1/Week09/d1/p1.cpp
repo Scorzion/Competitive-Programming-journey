@@ -31,9 +31,16 @@ void solve(){
     	cin >> a[i];
     }
 
-    ull ans = 0;
+    int mini = INT_MAX;
     for(int i=0; i<n; i++){
-        ans += a[i]-1;
+    	mini = min(mini, a[i]);
+    }
+
+    int ans = 0;
+    for(int i=0; i<n; i++){
+    	if(a[i]>mini){
+    		ans += a[i]-mini;
+    	}
     }
 
     cout << ans << endl;
@@ -46,8 +53,11 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
+    int t;
+    cin >> t;
 
-    solve();
-
+    while(t--){
+        solve();
+    }
     return 0;
 }
