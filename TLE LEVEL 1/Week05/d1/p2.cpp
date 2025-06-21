@@ -5,8 +5,7 @@
  
 #include <bits/stdc++.h>
 using namespace std;
- 
-//for input and output.
+
 void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -14,8 +13,7 @@ void init_code(){
     freopen("error.txt", "w", stderr);
     #endif 
 }
- 
-//declared few shorthands
+
 typedef unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
@@ -24,41 +22,39 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-bool checker(int a[], int n){
-	for(int i=0; i<n-1; i++){
-		if(a[i+1]<a[i]){
-			return 0;
-		}
-	}
-
-	return 1;
-}
-
 void solve(){
-	int n, k;
-	cin >> n >> k;
-	int x = k;
+    int n, m;
+    cin >> n >> m;
 
-	int a[n];
-	for(int i=0; i<n; i++){
-		cin >> a[i];
-	}
+    ll a[n];
+    for(int i=0; i<n; i++){
+    	cin >> a[i];
+    }
 
-	if(checker(a,n)==1){
-		cout << "YES" << endl;
-		return;
-	}
+    ll b[m];
+    for(int i=0; i<m; i++){
+    	cin >> b[i];
+    }
 
+    for(int i=0; i<m; i++){
+    	bool flag = 0;
+    	
+    	for(int j=0; j<n; j++){
+    		if(b[i]==a[j]){
+    			a[j]=0;
+    			flag = 1;
+    			break;
+    		}
+    	}
 
-	if(k>1){
-		cout << "YES" << endl;
-		return;
-	}
+    	if(flag==0){
+    		cout << "No" << endl;
+    		return;
+    	}
+    }
 
-		
-	cout << "NO" << endl;
-	return;
-
+    cout << "Yes" << endl;
+    return;
 }
 
 int main(){
@@ -67,11 +63,7 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
+    solve();
 
-    while(t--){
-        solve();
-    }
     return 0;
 }

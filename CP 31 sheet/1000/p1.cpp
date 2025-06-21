@@ -5,8 +5,7 @@
  
 #include <bits/stdc++.h>
 using namespace std;
- 
-//for input and output.
+
 void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -14,8 +13,7 @@ void init_code(){
     freopen("error.txt", "w", stderr);
     #endif 
 }
- 
-//declared few shorthands
+
 typedef unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
@@ -24,41 +22,48 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-bool checker(int a[], int n){
-	for(int i=0; i<n-1; i++){
-		if(a[i+1]<a[i]){
-			return 0;
-		}
-	}
-
-	return 1;
-}
-
 void solve(){
-	int n, k;
-	cin >> n >> k;
-	int x = k;
+    string s;
+    cin >> s;
 
-	int a[n];
-	for(int i=0; i<n; i++){
-		cin >> a[i];
-	}
+    if(s.size()==1){
+    	cout << 1 << endl;
+    	return;
+    }
 
-	if(checker(a,n)==1){
-		cout << "YES" << endl;
-		return;
-	}
+    int cnt0 = 0;
+    int cnt1 = 0;
 
+    for(int i=0; i<s.size(); i++){
+    	if(s[i]=='0'){
+    		cnt0++;
+    	}
+    	else{
+    		cnt1++;
+    	}
+    }
 
-	if(k>1){
-		cout << "YES" << endl;
-		return;
-	}
+    if(cnt0==cnt1){
+    	cout << 0 << endl;
+    	return;
+    }
 
-		
-	cout << "NO" << endl;
-	return;
-
+    for(int i=0; i<s.size(); i++){
+    	if(s[i]=='1'){
+    		if(cnt0==0){
+    			cout << s.size()-i << endl;
+    			return;
+    		}
+    		cnt0--;
+    	}
+    	else{
+    		if(cnt1==0){
+    			cout << s.size()-i << endl;
+    			return;
+    		}
+    		cnt1--;
+    	}
+    }
 }
 
 int main(){
