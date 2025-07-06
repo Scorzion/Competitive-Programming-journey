@@ -55,7 +55,7 @@ void solve(){
     		return;
     	}
     }
-
+  
     int cnt1 = 0;
     cnt++;
     for(int i=0; i<n; i++){

@@ -4,9 +4,9 @@
 **/
 
 /**
-    TC    - O(n)
-    SC    - O(n)
-    Logic - 
+    TC    - O()
+    SC    -
+    Logic - O()
 
 **/
  
@@ -30,26 +30,41 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-        int n;
-    cin >> n;
+	int n;
+	cin >> n;
 
-    vector<int> a(n);
-    for(int i=0; i<n; i++){
-        cin >> a[i];
-    }
+	int px,py,qx,qy;
+	cin >> px >> py >> qx >> qy;
 
-    if(n%2==0){
-        cout << 2 << endl;
-        cout << 1 << " " << n << endl;
-        cout << 1 << " " << n << endl;
-    }
-    else{
-        cout << 4 << endl;
-        cout << 1 << " " << n-1 << endl;
-        cout << 1 << " " << n-1 << endl;
-        cout << n-1 << " " << n << endl;
-        cout << n-1 << " " << n << endl;
-    }
+	int a[n];
+	int sum = 0;
+	for(int i=0; i<n; i++){
+		cin >> a[i];
+		sum += a[i];
+	}  
+
+	sum -= a[n-1];
+	int d = sqrt((px-qx)*(px-qx)+(py-qy)*(py-qy));
+
+	if(n==1 && d!=a[n-1]){
+		cout << "NO" << endl;
+		return;
+	}
+
+	if(px==qx && py == qy){
+		if(n==2 && a[0]!=a[1]){
+			cout << "NO" << endl;
+			return;
+		}
+	}
+
+	if(sum >= d - a[n-1]){
+		cout << "YES" << endl;
+		return;
+	}
+	
+	cout << "NO" << endl;
+	return;
 }
 
 int main(){

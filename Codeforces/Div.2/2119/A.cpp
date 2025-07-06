@@ -4,8 +4,8 @@
 **/
 
 /**
-    TC    - O(n)
-    SC    - O(n)
+    TC    - O()
+    SC    - O()
     Logic - 
 
 **/
@@ -30,25 +30,40 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-        int n;
-    cin >> n;
+    int a, b, x, y;
+    cin >> a >> b >> x >> y;
 
-    vector<int> a(n);
-    for(int i=0; i<n; i++){
-        cin >> a[i];
-    }
+    if(b>=a){
+    	int ans1 = (b-a)*x;
+    	int ans2 = 0;
 
-    if(n%2==0){
-        cout << 2 << endl;
-        cout << 1 << " " << n << endl;
-        cout << 1 << " " << n << endl;
+    	if(a%2==b%2){
+    		ans2 += ((b-a)/2)*x;
+    		ans2 += ((b-a)/2)*y;
+    	}
+    	else{
+    		if(a%2==1){
+    			ans2 += (((b-a)/2) + 1) * x;
+    			ans2 += ((b-a)/2) * y;
+    		}
+    		else{
+    			ans2 += (((b-a)/2) + 1) * y;
+    			ans2 += ((b-a)/2) * x;
+    		}
+    	}
+
+    	cout << min(ans1,ans2) << endl;
+    	return;
     }
     else{
-        cout << 4 << endl;
-        cout << 1 << " " << n-1 << endl;
-        cout << 1 << " " << n-1 << endl;
-        cout << n-1 << " " << n << endl;
-        cout << n-1 << " " << n << endl;
+    	if(a-b==1 && a%2==1){
+    		cout << y << endl;
+    		return;
+    	}
+    	else{
+    		cout << -1 << endl;
+    		return;
+    	}
     }
 }
 
