@@ -29,35 +29,26 @@ typedef long double ld;
 #define pb push_back
 #define endl "\n"
 
-
-
 void solve(){
-    ll a, b, xa, ya, xb, yb, n, m;
+    float a, b, c, d;
+    cin >> a >> b >> c >> d;
 
-    cin >> a >> b >> xa >> ya >> xb >> yb >> n >> m;
+    if(max(a,b)/(2*1.0) -1.0 <= min(a,b)){
+    	c -= a;
+    	d -= b;
 
-    ll result = 0;
+    	if(max(c,d)/(2*1.0) -1.0 <= min(c,d)){
+    		cout << "YES" << endl;
 
-    ll x = 0;
-    ll y = 0;
-    while(n>=2){
-    	x = ( ((a%m)*(xb%m))%m + ((xa%m)*(yb%m))%m )%m;
-
-    	y = ( ((b%m)*(yb%m))%m + ((ya%m)*(xb%m))%m )%m;
- 
-
-    	result += x%m;
-    	xa = xb;
-    	ya = yb;
-
-    	xb = x;
-    	yb = y;
-    	n--;
+    	}
+    	else{
+    		cout << "NO" << endl;
+    	}
     }
-
-    cout << result << endl;
-
-
+    else{
+    	cout << "NO" << endl;
+    	return;
+    }
 }
 
 int main(){
@@ -66,8 +57,11 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
+    int t;
+    cin >> t;
 
-    solve();
-
+    while(t--){
+        solve();
+    }
     return 0;
 }
