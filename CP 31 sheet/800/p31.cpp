@@ -30,14 +30,14 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    ll n, k;
-    cin >> n >> k;
+    int n, a, b;
+    cin >> n >> a >> b;
 
-    if(n%2==0){
+    if(n==a && b==a){
     	cout << "YES" << endl;
     }
     else{
-    	if(k%2==1){
+    	if(n-(a+b)>=2){
     		cout << "YES" << endl;
     	}
     	else{

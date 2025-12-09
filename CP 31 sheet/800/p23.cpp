@@ -30,19 +30,26 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    ll n, k;
-    cin >> n >> k;
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
 
-    if(n%2==0){
-    	cout << "YES" << endl;
-    }
+    int cnt = 0;
+    if( (d>= (c+b-a)) && (d>=b)){
+    	if(d==c+b-a){
+    		cout << d-b << endl;
+    		return;
+    	}
+    	if(d==b){
+    		cout << a-c << endl;
+    		return;
+    	}
+    	
+    	cnt+= abs(b+c-d-a);
+    	cnt+= abs(d-b);
+    	cout << cnt << endl;
+ 	}
     else{
-    	if(k%2==1){
-    		cout << "YES" << endl;
-    	}
-    	else{
-    		cout << "NO" << endl;
-    	}
+    	cout << -1 << endl;
     }
 }
 

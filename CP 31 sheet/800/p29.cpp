@@ -30,20 +30,27 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    ll n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
-    if(n%2==0){
-    	cout << "YES" << endl;
+    vector<int> a(n);
+    for(int i=0;i<n; i++){
+    	cin >> a[i];
     }
-    else{
-    	if(k%2==1){
-    		cout << "YES" << endl;
-    	}
-    	else{
-    		cout << "NO" << endl;
+
+    if(n==1){
+    	cout << 0 << endl;
+    	return;
+    }
+    
+    int ans = 0;
+    for(int i=0;i<n-1; i++){
+    	if(a[i]%2==a[i+1]%2){
+    		ans++;
     	}
     }
+
+    cout << ans << endl;
 }
 
 int main(){
