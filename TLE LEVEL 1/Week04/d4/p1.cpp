@@ -32,8 +32,25 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int k, s;
+    ll k, s;
     cin >> k >> s;
 
-     for(int x=k; )
+    ll ans = ((s+2)*(s+1))/2;
+
+    if(k>=s){
+        cout << ans << endl;
+    }
+    else{
+        if(s>3*k){
+            cout << 0 << endl;
+        }
+        
+        if(s>k && s<=2*k){
+            cout << ans - (3*(s-k+1)*(s-k))/2*1LL << endl;
+        }
+        
+        if(s>2*k && s<=3*k){
+            cout << ans - (3*(s-k+1)*(s-k))/2*1LL + (3*(s-2*k)*(s-2*k-1))/2*1LL << endl;
+        }
+    }
 }

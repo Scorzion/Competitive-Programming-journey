@@ -30,20 +30,7 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
-
-    int cnt1 = 0;
-    int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
-    }
-
-
+    
 }
 
 int main(){
@@ -52,11 +39,6 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
-
-    while(t--){
-        solve();
-    }
+    solve();
     return 0;
 }

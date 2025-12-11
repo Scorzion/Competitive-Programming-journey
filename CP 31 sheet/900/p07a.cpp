@@ -30,20 +30,29 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    int n,k;
+    cin >> n >> k;
 
-    int cnt1 = 0;
-    int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
+    vector<int> a(n);
+    for(int i=0;i<n;i++){
+    	cin >> a[i];
     }
 
+    int cnt = 1;
+    int ans = 1;
 
+    sort(a.begin(),a.end());
+    for(int i=1;i<n; i++){
+    	if(a[i]-a[i-1]<=k){
+    		cnt++;
+    	}
+    	else{
+    		cnt = 1;
+    	}
+    	ans = max(ans,cnt);
+    }
+
+    cout << n-ans << endl;
 }
 
 int main(){

@@ -30,23 +30,20 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    ll n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
-    vector<ll> a(n);
-    for(ll i=0; i<n; i++){
-    	cin >> a[i];
+    vector<int> a(n);
+    for(auto &it:a){
+    	cin >> it;
     }
 
-
-    ll cnt = 0;
-    for(ll i = 0; i<n; i++){
-    	if(a[i+1]-a[i]>k){
-    		cnt++;
-    	}
+    int mini =INT_MAX;
+    for(int i=0; i<n-1; i++){
+    	mini = min(a[i]+a[i+1],mini);
     }
 
-    cout << cnt << endl;
+    cout << mini << endl;
 }
 
 int main(){

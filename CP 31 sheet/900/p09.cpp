@@ -30,20 +30,40 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    int n;
+    cin >> n;
 
-    int cnt1 = 0;
-    int cnt0 = 0;
+    // if(n==2){
+    // 	cout << 1 << endl;
+    // 	return;
+    // }
 
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
+    vector<pair<int,int>> p;
+    for(int i=0; i<n; i++){
+    	int x;
+    	cin >> x;
+
+    	p.pb({x,i});
     }
 
+    sort(p.begin(),p.end());
 
+
+    vector<int> a;
+    for(int i=0; i<n; i++){
+    	int diff = abs(i-p[i].second);
+
+    	if(diff!=0)
+    		a.pb(diff);
+
+    }
+
+    int cnt = a[0];
+    for(int i=1; i<a.size(); i++){
+    	cnt = __gcd(cnt,a[i]);
+    }
+
+    cout << cnt << endl;  
 }
 
 int main(){

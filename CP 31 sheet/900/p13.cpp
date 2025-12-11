@@ -11,6 +11,7 @@
 **/
  
 #include <bits/stdc++.h>
+#include <climits>
 using namespace std;
 
 void init_code(){
@@ -30,20 +31,39 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    int n;
+    cin >> n;
 
-    int cnt1 = 0;
+    vector<int> a(n);
     int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
+    int mini = INT_MAX;
+    for(auto &it:a){
+        cin >> it;
+        if(it==0) cnt0++;
+        else mini = min(mini, it);
     }
 
+    int cnt = 0;
+    for(int i=1; i<n; i++){
+        if(a[i]==0 && a[i-1]!=0) cnt++;
+    }
 
+    if(a[n-1]==0) cnt--;
+    if(cnt>0){
+        cout << 2 << endl;
+    }
+    else{
+        if(cnt0==n){
+            cout << 0 << endl;
+            return;
+        }
+        if(cnt0==0){
+            cout << 1 << endl;
+            return;
+        }
+
+        cout << min(2,mini) << endl;
+    }
 }
 
 int main(){

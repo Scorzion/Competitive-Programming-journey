@@ -11,6 +11,7 @@
 **/
  
 #include <bits/stdc++.h>
+#include <cinttypes>
 using namespace std;
 
 void init_code(){
@@ -30,19 +31,25 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    ll n, q;
+    cin >> n >> q;
 
-    int cnt1 = 0;
-    int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
+    vector<ll> a(n),pre(n);
+    for(auto &it:a){
+    	cin >> it;
     }
 
+    pre[0] = a[0];
+    for(ll i=1; i<n; i++){
+    	pre[i] = pre[i-1] + a[i];
+    }
+
+    while(q--){
+    	ll a, b;
+    	cin >> a >> b;
+
+    	cout << pre[b-1] - ((a==1)? 0 : pre[a-2]) << endl;
+    }
 
 }
 
@@ -52,11 +59,8 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
 
-    while(t--){
-        solve();
-    }
+    solve();
+   
     return 0;
 }

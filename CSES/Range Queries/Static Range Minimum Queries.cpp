@@ -11,6 +11,7 @@
 **/
  
 #include <bits/stdc++.h>
+#include <climits>
 using namespace std;
 
 void init_code(){
@@ -30,20 +31,24 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    ll n, q;
+    cin >> n >> q;
 
-    int cnt1 = 0;
-    int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
+    vector<ll> V(n),pre_min(n);
+    for(auto &it:V){
+    	cin >> it;
     }
 
+    while(q--){
+    	ll a, b;
+    	cin >> a >> b;
 
+    	ll mini = V[a-1];
+    	for(ll i = a-1; i<=b-1; i++){
+    		mini = min(mini, V[i]);
+    	}
+    	cout << mini << endl;
+    }
 }
 
 int main(){
@@ -52,11 +57,8 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
 
-    while(t--){
-        solve();
-    }
+    solve();
+
     return 0;
 }

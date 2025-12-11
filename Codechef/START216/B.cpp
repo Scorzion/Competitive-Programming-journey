@@ -30,20 +30,10 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    int h, w;
-    cin >> h >> w;
+    int x, y;
+    cin >> x >> y;
 
-    int cnt1 = 0;
-    int cnt0 = 0;
-
-    vector<vector<int>> a(h,vector<int>(w));
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cin >> a[i][j];
-        }
-    }
-
-
+    cout << (x+y)/2 << " " << (y-x)/2 << endl;
 }
 
 int main(){
