@@ -11,7 +11,6 @@
 **/
  
 #include <bits/stdc++.h>
-#include <climits>
 using namespace std;
 
 void init_code(){
@@ -35,37 +34,31 @@ void solve(){
     cin >> n;
 
     vector<int> a(n);
-    int cnt0 = 0;
-    int mini = INT_MAX;
-    for(auto &it:a){
-        cin >> it;
-        if(it==0) cnt0++;
-        else mini = min(mini, it);
+    for(auto &it:a) cin >> it;
+
+
+    ll ans = 0;
+    for(int i=n-2; i>=0; i--){
+    	while(a[i]){
+    		if(a[i]<a[i+1]){
+    			break;
+    		}
+    		a[i] /= 2;
+    		ans++;
+    	}
+
+    	if(a[i]== 0 && i>0){
+    		cout << -1 << endl;
+    		return;
+    	}
+
+    	if(a[i+1]== a[i] && a[i]==0){
+    		cout << -1 << endl;
+    		return;
+    	}
     }
 
-
-    int cnt = 0;
-    for(int i=1; i<n; i++){
-        if(a[i]==0 && a[i-1]!=0) cnt++;
-    }
-
-
-    if(a[n-1]==0) cnt--;
-    if(cnt>0){
-        cout << 2 << endl;
-    }
-    else{
-        if(cnt0==n){
-            cout << 0 << endl;
-            return;
-        }
-        if(cnt0==0){
-            cout << 1 << endl;
-            return;
-        }
-
-        cout << 1 << endl;
-    }
+    cout << ans << endl;
 }
 
 int main(){

@@ -11,7 +11,6 @@
 **/
  
 #include <bits/stdc++.h>
-#include <climits>
 using namespace std;
 
 void init_code(){
@@ -34,38 +33,14 @@ void solve(){
     int n;
     cin >> n;
 
-    vector<int> a(n);
-    int cnt0 = 0;
-    int mini = INT_MAX;
-    for(auto &it:a){
-        cin >> it;
-        if(it==0) cnt0++;
-        else mini = min(mini, it);
+    string s;
+    cin >> s;
+
+    for(int i=0; i<n-s.size(); i++){
+    	cout << "o";
     }
 
-
-    int cnt = 0;
-    for(int i=1; i<n; i++){
-        if(a[i]==0 && a[i-1]!=0) cnt++;
-    }
-
-
-    if(a[n-1]==0) cnt--;
-    if(cnt>0){
-        cout << 2 << endl;
-    }
-    else{
-        if(cnt0==n){
-            cout << 0 << endl;
-            return;
-        }
-        if(cnt0==0){
-            cout << 1 << endl;
-            return;
-        }
-
-        cout << 1 << endl;
-    }
+    cout << s << endl;
 }
 
 int main(){
@@ -74,11 +49,8 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
 
-    while(t--){
-        solve();
-    }
+    solve();
+    
     return 0;
 }
