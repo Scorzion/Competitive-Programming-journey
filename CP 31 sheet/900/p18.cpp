@@ -4,7 +4,7 @@
 **/
 
 /**
-    TC    - O(n2)
+    TC    - O()
     SC    - O()
     Logic - 
 
@@ -17,6 +17,7 @@ void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
     #endif 
 }
 
@@ -29,29 +30,25 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-   	ll n, x;
-   	cin >> n >> x;
+    ll a, b, c;
+    cin >> a >> b >> c;
 
-   	vector<ll> a(n);
-   	for(auto &it:a) cin >> it;
+    if((2*b-c)%a==0 && (2*b-c)/a>0){
+        cout << "YES" << endl;
+        return;
+    }
 
-   	vector<ll> pre(n);
-   	pre[0] = a[0];
+    if((2*b-a)%c==0 && (2*b-a)/c>0){
+        cout << "YES" << endl;
+        return;
+    }
 
-   	for(ll i=1; i<n; i++){
-   		pre[i] = a[i] + pre[i-1];
-   	}
+    if((c+a)%(2*b)==0){
+        cout << "YES" << endl;
+        return;
+    }
 
-   	ll ans = 0;
-   	for(ll i=0; i<n; i++){
-   		for(ll j=i; j<n; j++){
-   			ll y = pre[j] - ((i>0)? pre[i-1]: 0);
-   			if(x == y) ans++;
-   		}
-   	}
-
-   	cout << ans << endl;
-
+    cout << "NO" << endl;
 }
 
 int main(){
@@ -60,8 +57,11 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
+    int t;
+    cin >> t;
 
-    solve();
-    
+    while(t--){
+        solve();
+    }
     return 0;
 }

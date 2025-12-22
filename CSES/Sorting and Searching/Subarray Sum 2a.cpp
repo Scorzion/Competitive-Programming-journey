@@ -4,7 +4,7 @@
 **/
 
 /**
-    TC    - O(n2)
+    TC    - O()
     SC    - O()
     Logic - 
 
@@ -17,6 +17,7 @@ void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
     #endif 
 }
 
@@ -29,29 +30,25 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-   	ll n, x;
-   	cin >> n >> x;
+    ll n, x;
+    cin >> n >> x;
 
-   	vector<ll> a(n);
-   	for(auto &it:a) cin >> it;
+    vector<ll> a(n);
+    for(auto &it:a) cin >> it;
 
-   	vector<ll> pre(n);
-   	pre[0] = a[0];
+    ll ans = 0;
+	ll sum = 0;
+	map<ll,ll> m;
 
-   	for(ll i=1; i<n; i++){
-   		pre[i] = a[i] + pre[i-1];
-   	}
+	for(int i=0; i<n; i++){
+		sum += a[i];
+		ans += m[sum-x];
 
-   	ll ans = 0;
-   	for(ll i=0; i<n; i++){
-   		for(ll j=i; j<n; j++){
-   			ll y = pre[j] - ((i>0)? pre[i-1]: 0);
-   			if(x == y) ans++;
-   		}
-   	}
+		if(sum==x) ans++;
+		m[sum]++;
+	}
 
-   	cout << ans << endl;
-
+	cout << ans << endl;
 }
 
 int main(){
@@ -60,8 +57,6 @@ int main(){
     ios_base::sync_with_stdio(0); 
     cin.tie(NULL);
 
-
     solve();
-    
     return 0;
 }

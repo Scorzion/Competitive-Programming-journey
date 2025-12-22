@@ -4,7 +4,7 @@
 **/
 
 /**
-    TC    - O(n2)
+    TC    - O()
     SC    - O()
     Logic - 
 
@@ -17,6 +17,7 @@ void init_code(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
     #endif 
 }
 
@@ -29,29 +30,35 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-   	ll n, x;
-   	cin >> n >> x;
+    ll n;
+    cin >> n;
 
-   	vector<ll> a(n);
-   	for(auto &it:a) cin >> it;
+    vector<ll> v(n);
+    for(auto &it:v) cin >> it;
 
-   	vector<ll> pre(n);
-   	pre[0] = a[0];
+    vector<ll> pre(n);
+	pre[0] = v[0];
+	for(int i=1; i<n; i++){
+		pre[i] = pre[i-1] + v[i];
+	}
 
-   	for(ll i=1; i<n; i++){
-   		pre[i] = a[i] + pre[i-1];
-   	}
+	sort(v.begin(),v.end());
+	vector<ll> spre(n);
+	spre[0] = v[0];
+	for(ll i=1; i<n; i++){
+		spre[i] = spre[i-1] + v[i];
+	}
 
-   	ll ans = 0;
-   	for(ll i=0; i<n; i++){
-   		for(ll j=i; j<n; j++){
-   			ll y = pre[j] - ((i>0)? pre[i-1]: 0);
-   			if(x == y) ans++;
-   		}
-   	}
+	int q;
+	cin >> q;
 
-   	cout << ans << endl;
+	while(q--){
+		int t, l, r;
+		cin >> t>>  l >> r;
 
+		if(t==1) cout << pre[r-1] - (l-2>=0? pre[l-2]:0) << endl;
+		else cout << spre[r-1] - (l-2>=0? spre[l-2]:0) << endl;
+	}
 }
 
 int main(){
