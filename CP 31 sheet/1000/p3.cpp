@@ -51,29 +51,29 @@ void solve(){
 
     sort(v.begin(), v.end());
 
-    int rest = n;
-    int cnt = 0;
-    ll ans = 0;
-    int i=0;
+    ll cost = p;
+    ll people = 1;
 
-    while(rest>0){
-    	if(i==n-1 || v[i].first!=v[i+1].first){
-    		cnt++;
-    		rest--;
-    		if(v[i].second<=rest){
-    			ans += v[i].second*v[i].first;
-    			rest -= v[i].second;
-    		}
-    		else{
-    			ans += rest*v[i].first;
-    			rest = 0;
-    		}
-    	}
-    	i++;
+    for(auto it:v){
+        ll num_sharedpeople = it.second;
+        ll sharingcost = it.first;
+
+        if(sharingcost>=p){
+            break;
+        }
+        if(people + num_sharedpeople>n){
+            cost += (n - people)*sharingcost;
+            people = n; 
+            break;
+        }
+        else{
+            cost += num_sharedpeople * sharingcost;
+            people += num_sharedpeople;
+        }
     }
 
-    ans += cnt*p;
-    cout << ans << endl;
+    cost += (n-people)*p;
+    cout << cost << endl;
 }
 
 int main(){
