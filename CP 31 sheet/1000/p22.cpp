@@ -1,0 +1,84 @@
+/**
+    Author: Sourav Sharma (@Sneaky_Typer)
+    Go for Gold.
+**/
+
+/**
+    TC    - O()
+    SC    - O()
+    Logic - 
+
+**/
+ 
+#include <bits/stdc++.h>
+#include <climits>
+using namespace std;
+
+void init_code(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
+    #endif 
+}
+
+typedef unsigned long long ull;
+typedef long long ll;
+typedef long double ld;
+ 
+#define mp make_pair
+#define pb push_back
+#define endl "\n"
+
+void solve(){
+    ll A, B;
+    cin >> A >> B;
+
+    ll a,b;
+    a = A; b = B;
+    ll n = 0;
+    if(b==1){
+    	b++;
+    	n++;
+    }
+
+    while(a){
+    	n++;
+    	a /= b;
+    }
+
+    a = A;
+    
+    ll k = 0;
+    ll ans = INT_MAX;
+    if(B==1) b--;
+    for(int i=(B>1? 0:1); i<n; i++){
+    	k = i;
+    	if(k>0) b++;
+    	while(a){
+    		k++;
+    		a /= b;
+    	}
+    	ans = min(ans,k);
+    	a = A;
+    }
+
+    cout << ans << endl;
+
+    
+}
+
+int main(){
+    init_code();
+ 
+    ios_base::sync_with_stdio(0); 
+    cin.tie(NULL);
+
+    int t;
+    cin >> t;
+
+    while(t--){
+        solve();
+    }
+    return 0;
+}

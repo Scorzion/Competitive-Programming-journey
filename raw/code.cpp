@@ -14,7 +14,6 @@
 using namespace std;
 
 void init_code(){
-    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -31,7 +30,7 @@ typedef long double ld;
 #define endl "\n"
 
 void solve(){
-    
+    cout << 1 << endl;
 }
 
 int main(){
