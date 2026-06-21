@@ -1,6 +1,5 @@
 \documentclass[11pt,a4paper]{article}
 
-% Core Packages
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper, margin=1in, headheight=14pt]{geometry}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -12,10 +11,8 @@
 \usepackage{indentfirst}
 \usepackage{microtype}
 
-% Beautiful Boxes Package
 \usepackage[most]{tcolorbox}
 
-% Color Definitions
 \definecolor{darknavy}{HTML}{0F172A}
 \definecolor{midblue}{HTML}{2563EB}
 \definecolor{charcoal}{HTML}{334155}
@@ -23,7 +20,6 @@
 \definecolor{bordercode}{HTML}{E2E8F0}
 \definecolor{commentgray}{HTML}{64748B}
 
-% tcolorbox styling for final results
 \newtcolorbox{resultbox}[1]{
     colback=bgcode,
     colframe=midblue,
@@ -40,7 +36,6 @@
     after=\vspace{10pt}
 }
 
-% Headers \& Footers
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -50,7 +45,6 @@
 \fancyfoot[L]{\color{commentgray}\small International Computer Science Competition (ICSC) 2026}
 \fancyfoot[R]{\color{commentgray}\small Page \thepage}
 
-% C++ Syntax Highlighting Configuration
 \lstset{
     language=C++,
     backgroundcolor=\color{bgcode},
@@ -77,15 +71,11 @@
     xleftmargin=12pt
 }
 
-% Document Formatting Rules
 \setlength{\parskip}{6pt}
 \setlength{\parindent}{15pt}
 
 \begin{document}
 
-% ==========================================
-% CUSTOM PREMIUM COVER PAGE
-% ==========================================
 \begin{titlepage}
     \centering
     \vspace*{1.5in}
@@ -141,9 +131,6 @@
 
 \newpage
 
-% ==========================================
-% PROBLEM A
-% ==========================================
 \section{Problem A: A History of Computing}
 The timeline below maps ten landmark events in computing and technology history plotted against the growth of transistor counts from 1936 to 2022.
 
@@ -173,9 +160,6 @@ The timeline below maps ten landmark events in computing and technology history 
 
 \newpage
 
-% ==========================================
-% PROBLEM B
-% ==========================================
 \section{Problem B: Pixel Art}
 
 \subsection{Mathematical Formulations and Approach}
@@ -198,9 +182,6 @@ The complete implementation of the Pixel Art grid generator in C++ is shown belo
 
 \newpage
 
-% ==========================================
-% PROBLEM C
-% ==========================================
 \section{Problem C: Moore's Law}
 
 \subsection{Transistor Count Prediction for 2026}
@@ -249,9 +230,6 @@ Thus, the historical growth rate over 55 years fits a doubling period of approxi
 
 \newpage
 
-% ==========================================
-% PROBLEM D
-% ==========================================
 \section{Problem D: The Simultaneous Strike}
 
 \subsection{Bug Analysis in the Replay Pseudocode}
@@ -266,9 +244,6 @@ The corrected implementation of the game replay processor in C++ is shown below:
 
 \newpage
 
-% ==========================================
-% PROBLEM E
-% ==========================================
 \section{Problem E: PageRank in the Age of AI Slop}
 
 \subsection{PageRank Foundations}
