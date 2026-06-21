@@ -8,22 +8,28 @@ using namespace std;
 #define endl "\n"
 
 void solve(){
-      int n;
-      cin >> n;
+    int n, k;
+    cin >> n >> k;
 
-      vector<ll> b(n);
-      for(auto &it:b) cin >> it;
+    vector<bitset<32>> v(n);
+    for(int i=0; i<n; i++){
+    	int x;
+    	cin >> x;
+    	v[i] = x;
+    }
 
-      sort(b.rbegin(),b.rend());
 
-      for(int i=2; i<n; i++){
-            if(b[i-2]%b[i-1]!=b[i]){
-                cout << -1 << endl;
-                return;
-            }
-      }
+    ll ans = 0;
+    for(int i=0; i<32; i++){
+    	ll cnt = 0;
+    	for(int j=0; j<n; j++){
+    		if(v[j][i]) cnt++;
+    	}
 
-      cout << b[0] << " " << b[1] << endl;
+    	ans += (cnt+k-1)/k;
+    }
+
+    cout << ans << endl;
 }
 
 signed main(){

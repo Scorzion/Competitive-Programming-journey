@@ -8,23 +8,25 @@ using namespace std;
 #define endl "\n"
 
 void solve(){
-      int n;
-      cin >> n;
+    int n;
+    cin >> n; 
 
-      vector<ll> b(n);
-      for(auto &it:b) cin >> it;
+    vector<int> h(n);
+    int mx = INT_MIN;
 
-      sort(b.rbegin(),b.rend());
+    int ans = INT_MIN;
+    for(auto &it:h){
+    	cin >> it;
+    	mx = max(mx,it);
+    }
 
-      for(int i=2; i<n; i++){
-            if(b[i-2]%b[i-1]!=b[i]){
-                cout << -1 << endl;
-                return;
-            }
-      }
+    for(int i=0; i<n;i++){
+    	ans = max(ans,mx+1-h[i]);
+    }
 
-      cout << b[0] << " " << b[1] << endl;
+    cout << ans << endl;
 }
+
 
 signed main(){
     ios_base::sync_with_stdio(false);

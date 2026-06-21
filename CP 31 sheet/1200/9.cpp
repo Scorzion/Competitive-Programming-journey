@@ -11,21 +11,30 @@ void solve(){
     int n;
     cin >> n;
 
-    vector<int> a(n);
-    map<int,int> mp(n);
+    map<ll,ll> mp;
 
-    ll ans = LLONG_MAX;
-    for(auto &it:a){
-    	cin >> it;
-    	mp[it]++;
-    } 
-
-    for(auto it:mp){
-    	ans = min(ans,it.second);
+    for(int i=0;i<n;i++){
+        ll x;
+        cin >> x;
+        mp[x]++;
     }
 
-    
+    ll ans = 0;
 
+    ans += (mp.rbegin())->second;
+
+    for(auto it = mp.begin(); next(it) != mp.end(); it++){
+        auto nxt = next(it);
+
+        if((nxt->second - it->second < 0) && (nxt->first == (it->first +1))){
+            ans += abs(nxt->second - it->second);
+        }
+        else if(nxt->first!= (it->first+1)){
+            ans += it->second;
+        }
+    }
+
+    cout << ans << endl;
 
 }
 
