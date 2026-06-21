@@ -4,23 +4,14 @@
 #include <cmath>
 #include <stdexcept>
 
-/**
- * Generates specific geometric patterns on an N x N grid.
- * 
- * Args:
- *     n: The grid size (5 <= N <= 51, always odd for diamond shape).
- *     shape: Either "checkerboard" or "diamond".
- *     
- * Returns:
- *     A 2D vector of integers (0 or 1) representing the grid.
- */
+// Generates patterns on an N x N grid (checkerboard or diamond)
 std::vector<std::vector<int>> generate_shape(int n, std::string shape) {
     std::vector<std::vector<int>> grid(n, std::vector<int>(n, 0));
     
     if (shape == "checkerboard") {
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                // Alternating cells, starting with 0 at top-left (0,0)
+                // Top-left is 0
                 grid[i][j] = (i + j) % 2;
             }
         }
@@ -31,7 +22,7 @@ std::vector<std::vector<int>> generate_shape(int n, std::string shape) {
         int center = n / 2;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                // Check Manhattan distance from the center cell (center, center)
+                // Manhattan distance check
                 if (std::abs(i - center) + std::abs(j - center) <= center) {
                     grid[i][j] = 1;
                 } else {
@@ -46,7 +37,7 @@ std::vector<std::vector<int>> generate_shape(int n, std::string shape) {
     return grid;
 }
 
-// --- Main execution block ---
+// Main
 int main() {
     try {
         std::string n_str, shape;
@@ -57,7 +48,6 @@ int main() {
         
         std::vector<std::vector<int>> grid = generate_shape(n, shape);
         
-        // Print the grid as N rows, each containing N space-separated values
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 std::cout << grid[i][j] << (j == n - 1 ? "" : " ");
