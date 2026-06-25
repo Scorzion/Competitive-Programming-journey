@@ -7,27 +7,25 @@ Welcome to my competitive programming journey repository! This contains my solut
 
 ## 📂 Repository Structure
 
-- **Contest Platforms (CP)**
-  - [AtCoder](./AtCoder) - Solutions for AtCoder contests
-  - [CodeChef](./Codechef) - CodeChef competition solutions
-  - [Codeforces](./Codeforces) - Codeforces round solutions
+- **Contest Platforms**
+  - [AtCoder](./AtCoder) - ABC, AGC, ARC & AHC contest solutions
+  - [CodeChef](./Codechef) - CodeChef Starters round solutions
+  - [Codeforces](./Codeforces) - Div.1, Div.2, Div.3 & Div.4 round solutions
 
-- **Special Events & Competitions (SE)**
-  - [IICPC](./IICPC) - IICPC Codefest Preparation
-  - [ICPC](./ICPC) - ICPC Preparation
-  - [CP Competitions](./CP%20Competitions) - Solutions for college contests, hackathons, and hiring OAs (like Goldman Sachs, Citadel, TCS Codevita, IEEEXtreme)
-  - [AMS](./AMS) - AMS Challenges & Derive 2026
+- **Problem Sets & Sheets**
+  - [CSES](./CSES) - Solutions for [CSES.fi](https://cses.fi) problems (Introductory, Sorting & Searching, Range Queries, Mathematics)
+  - [CP 31 Sheet](./CP%2031%20sheet) - Rating-wise solutions (800–2000)
 
-- **Learning Resources (LR)**
-  - [Resources](./Resources) - Useful CP resources and references
-  - [TLE Level 1](./TLE%20LEVEL%201) - Soln of TLE Level 1 Problems
-  - [TLE Level 2](./TLE%20LEVEL%202) - Soln of TLE Level 2 Problems
-  - [TLE Level 3](./TLE%20LEVEL%203) - Soln of TLE Level 3 Problems
-  - [TLE Level 4](./TLE%20LEVEL%204) - Soln of TLE Level 4 Problems
-  - [CSES](./CSES) - Soln for [CSES.fi](https://cses.fi) Problems
-  - [CP 31 Sheet](./CP%2031%20sheet) - Soln of CP 31 Sheet (Rating Wise)
+- **TLE Eliminators**
+  - [TLE Level 1](./TLE%20LEVEL%201) - Level 1 problem solutions (Weeks 2–13)
+  - [TLE Level 2](./TLE%20LEVEL%202) - Level 2 problem solutions (Weeks 1–4)
+  - [TLE Level 3](./TLE%20LEVEL%203) - Level 3 problem solutions
+  - [TLE Level 4](./TLE%20LEVEL%204) - Level 4 problem solutions
 
-- **Miscellaneous / Workspace**
+- **Learning Resources**
+  - [Resources](./Resources) - CPI Silver, ITMO Academy (Binary Search) & other references
+
+- **Workspace**
   - [templates](./templates) - Competitive programming templates
   - [.io](./.io) - Fast I/O workspace files (input/output)
 
