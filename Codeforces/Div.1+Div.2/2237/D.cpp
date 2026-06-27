@@ -8,30 +8,34 @@ using namespace std;
 #define endl "\n"
 
 void solve(){
-    int n;
-    cin >> n;
-
-    string s;
-    cin >> s;
-
-    ll cnt1 = 0;
-    ll cnt0 = 0;
-    for(int i=0; i<n; i++){
-    	if(s[i]=='1') cnt1++;
-    	else cnt0++;
-    }
+    int n; cin >> n;
+    string s; cin >> s;
 
     ll ans = 0;
-    for(int i=0;i<n;i++){
-    	int x = cnt1;
-    	int y = cnt0;
-    	for(int j=n-1; j>i; j--){
-    		
-    	}
-    	
-    	if(s[i]=='1') cnt1 = x-1;
-    	else cnt0 = y-1;
+    ll alt = 0;
+
+    vector<ll> dp(3,0);
+    for(int i=0; i<n; i++){
+        vector<ll> temp = dp;
+        if(s[i] == '1'){
+            temp[0] = dp[2];
+            temp[1] = dp[0] + 1;
+            temp[2] = dp[1];
+        }
+        else{
+            temp[0] = dp[1];
+            temp[1] = dp[2];
+            temp[2] = dp[0] + 1;
+        }
+        dp = temp;
+
+        if(i && s[i] != s[i-1]) alt++;
+        else alt = 1;
+
+        ans += dp[1] + dp[2] - (alt-1)/2;
     }
+
+    cout << ans << endl;
 }
 
 signed main(){
