@@ -11,29 +11,27 @@ void solve(){
     int n, m;
     cin >> n >> m;
 
-    bitset<40> a;
-    bitset<40> b;
-
+    vector<int> cnt(m, 0);
     for(int i=0; i<n; i++){
-    	int x;
-    	cin >> x;
+        int x; 
+        cin >> x;
 
-    	a[x] = 1;
+        cnt[x%m]++;
     }
 
-    for(int i=0; i<m; i++){
-    	int x;
-    	cin >> x;
+    ll ans = 0;
+    if(cnt[0]>0) ans++;                      
+    if(m%2==0 && cnt[m/2]>0) ans++;      
 
-    	b[x] = 1;
+    for(int r=1; r<m-r; r++){             
+        int c1 = cnt[r];
+        int c2 = cnt[m-r];
+
+        if(c1 == 0 && c2 == 0) continue;
+        ans += max(1, abs(c1-c2));
     }
 
-    bitset<40> ans;
-    ans = a&b;
-
- 	
-    cout << ans.count() << endl;
-
+    cout << ans << endl;
 }
 
 signed main(){

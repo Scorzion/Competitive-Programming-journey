@@ -8,32 +8,28 @@ using namespace std;
 #define endl "\n"
 
 void solve(){
-    int n, m;
-    cin >> n >> m;
+    int n, k;
+    cin >> n >> k;
 
-    bitset<40> a;
-    bitset<40> b;
-
-    for(int i=0; i<n; i++){
-    	int x;
-    	cin >> x;
-
-    	a[x] = 1;
+    if(n & 1){
+    	int len = n/2;
+    	int cyc = (k-1)/len;
+    	if((k+cyc)%n){
+    		cout << (k+cyc)%n << endl;
+    	}
+    	else{
+    		cout << n << endl;
+    	}
+    	
     }
-
-    for(int i=0; i<m; i++){
-    	int x;
-    	cin >> x;
-
-    	b[x] = 1;
+    else{
+    	if(k%n){
+    		cout << k%n << endl;
+    	}
+    	else{
+    		cout << n << endl;
+    	}
     }
-
-    bitset<40> ans;
-    ans = a&b;
-
- 	
-    cout << ans.count() << endl;
-
 }
 
 signed main(){
