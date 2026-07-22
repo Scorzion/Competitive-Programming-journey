@@ -11,30 +11,25 @@ void solve(){
     ll n;
     cin >> n;
 
-    vector<ll> a(n);
-
-    map<ll,ll> mp;
-    for(auto &it:a){
-    	cin >> it;
-    	mp[it]++;
+    vector<pair<ll,ll>> v(n);
+    for(int i=0; i<n; i++){
+        cin >> v[i].first;
+        v[i].second = i+1;
     }
+    sort(all(v));
 
     ll ans = 0;
-    for(int i=0; i<n; i++){
-    	ll cnt = n/a[i];
-
-    	ll temp = 0;
-    	for(ll k=i+2; k<=(2LL*cnt)-1LL; k++){
-    		if(mp.find(k)!=mp.end()){
-    			ans++;
-    		}
-    		
-    	}
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+            if(v[i].first*v[j].first>=2*n)
+                break;
+        
+            if(v[i].first*v[j].first == v[i].second + v[j].second)
+                ans++;
+        }
     }
 
     cout << ans << endl;
-    
-
 
 }
 
