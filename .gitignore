@@ -1,1 +1,23 @@
 .io/
+
+# Ignore PDF files by default
+*.pdf
+*.PDF
+
+# Except PDFs inside the Resources directory
+!Resources/*.pdf
+!Resources/**/*.pdf
+
+# Ignore TXT files
+*.txt
+*.TXT
+
+# Executables & Compiled Binaries (Competitive Programming)
+*.out
+*.exe
+*.o
+*.obj
+*.class
+
+# OS / Editor Files
+.DS_Store

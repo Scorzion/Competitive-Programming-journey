@@ -1,9 +1,0 @@
-Array Problems
-
-https://codeforces.com/problemset/problem/110/A
-https://cses.fi/problemset/task/1083
-https://codeforces.com/problemset/problem/677/A
-
-String Problems.
-https://cses.fi/problemset/task/1069
-https://codeforces.com/problemset/problem/1619/A
