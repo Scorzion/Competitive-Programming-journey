@@ -5,7 +5,14 @@
 
 Welcome to my competitive programming journey repository! This contains my solutions, resources, and progress across various platforms and contests.
 
+## 🏆 Key Achievements
+
+- 🏆 **AIR 47** at SRMC 2026 Prelims by Jane Street
+- 🏆 **AIR 476** at IEEEXtreme 19.0 (Global Rank 1493)
+- 🏅 **Finalist** in Reverse Coding by IIT Madras x IMC Trading
+
 ## 📂 Repository Structure
+
 
 - **Contest Platforms**
   - [AtCoder](./AtCoder) - ABC, AGC, ARC & AHC contest solutions
