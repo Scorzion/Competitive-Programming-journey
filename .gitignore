@@ -21,3 +21,7 @@
 
 # OS / Editor Files
 .DS_Store
+
+# Auto-push log file
+auto_push.log
+
