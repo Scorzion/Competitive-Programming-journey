@@ -11,96 +11,24 @@ void solve(){
     int n;
     cin >> n;
 
-    vector<int> a(n);
-    bool feb = 0;
-    int fidx = 0;
-    bool leap = 0;
 
-    for(auto &it:a){
-    	cin >> it;
-    }
+    vector<int> x{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    vector<int> y{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    bool start = 1;
-    if(a[0]!=31){
-    	start = 0;
-    }
+    vector<int> l1;
+    b.reserve(36);
+    b.insert(b.end(), x.begin(), x.end());
+    b.insert(b.end(), y.begin(), y.end());
+    b.insert(b.end(), x.begin(), x.end());
 
-    if(start){
-    	for(int i=0; i<n; i++){
-    		if(i%2==0){
-    			if(a[i]!=31){
-    				cout << "NO" << endl;
-    				return;
-    			}
-    		}
-    		else{
-    			if(a[i]==28 || a[i]==29){
-    				if(!feb){
-    					feb = 1;
-    					fidx = i;
-    					if(a[i]==29) leap = 1;
-    				}
-    				else{
-    					if(i-fidx==12){
-    						cout << "NO" << endl;
-    						return;
-    					}
+    for
 
-    					if(leap && a[i]==29){
-    						cout << "NO" << endl;
-    						return;
-    					}
-    				}
-    			}
-    			else if(a[i]==31){
-    				cout << "NO" << endl;
-    				return;
-    			}
-    			else{
-    				continue;
-    			}
-    		}
-    	}
-    }
-    else{
-    	for(int i=0; i<n; i++){
-    		if(i%2==1){
-    			if(a[i]!=31){
-    				cout << "NO" << endl;
-    				return;
-    			}
-    		}
-    		else{
-    			if(a[i]==28 || a[i]==29){
-    				if(!feb){
-    					feb = 1;
-    					fidx = i;
-    					if(a[i]==29) leap = 1;
-    				}
-    				else{
-    					if(i-fidx!=12){
-    						cout << "NO" << endl;
-    						return;
-    					}
+    vector<int> l2;
+    c.reserve(36);
+    c.insert(c.end(), y.begin(), y.end());
+    c.insert(c.end(), c.begin(), c.end());
+    c.insert(c.end(), 
 
-    					if(leap && a[i]==29){
-    						cout << "NO" << endl;
-    						return;
-    					}
-    				}
-    			}
-    			else if(a[i]==31){
-    				cout << "NO" << endl;
-    				return;
-    			}
-    			else{
-    				continue;
-    			}
-    		}
-    	}
-    }
-    cout << fidx << endl;
-    cout << "YES" << endl;
 }
 
 signed main(){
