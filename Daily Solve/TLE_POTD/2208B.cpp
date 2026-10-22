@@ -12,17 +12,45 @@ void solve(){
     cin >> n >> k >> p >> m;
 
     vector<int> a(n);
-    set<int> s;
+    multiset<int> s;
 
     for(auto &it:a){
-    	cin >> it;
+        cin >> it;
     }
 
-    for(int i=0; i<n; i++){
-    	if(i<k){
-    		s.insert(a[i]);
-    	}
+    int w = a[p-1];
+    int c = 0;
+
+
+    if(p>k){
+        for(int i=0; i<k; i++){
+            s.insert(a[i]);
+        }
+        for(int i=k; i<p; i++){
+            c += *s.begin();
+            s.erase(s.begin());
+            if(i<p-1) s.insert(a[i]);   
+        }
     }
+
+    if(c+w>m){
+        cout << 0 << endl;
+        return;
+    }
+
+    vector<int> o;
+    for(int i=0; i<n; i++){
+        if(i != p-1) o.push_back(a[i]);
+    }
+    sort(all(o));
+
+    int S = 0;
+    for(int i=0; i<n-k; i++){
+        S += o[i];
+    }
+
+    int ans = 1+(m-c-w)/(w+S);
+    cout << ans << endl;
 }
 
 signed main(){
