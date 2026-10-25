@@ -11,22 +11,30 @@ void solve(){
     int n;
     cin >> n;
 
-    vector<int> a(n);
+    vector<ll> a(n);
     for(auto &it:a) cin >> it;
 
-    int ans = 0;
-	int j = 0;
-	int tmp = 0;
-	for(int i=0; i<n; i++){
+    ll ans = LLONG_MAX;
+	ll j = 0;
+	ll tmp = 0;
+
+	for(ll i=0; i<n-1; i++){
 		if(a[i]==a[i+1]){
 			j++;
 		}
 		else{
-			tmp = i*a[i];
-			tmp += (n-i-j-1)*a[i];
+			tmp = (n-i-1)*a[i];
+			tmp += (i-j)*a[i];
+			ans = min(ans, tmp);
 			j = 0;
 		}
-		ans = max(ans,tmp);
+	}
+
+	if(a[n-1]!=a[n-2]){
+		ans = min(ans,(n-1)*a[n-1]);
+	}
+	else{
+		ans = min(ans, (n-1-j)*a[n-1]);
 	}
 
 	cout << ans << endl;
