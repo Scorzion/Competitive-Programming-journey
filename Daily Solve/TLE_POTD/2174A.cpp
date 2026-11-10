@@ -40,16 +40,28 @@ void solve(){
     string ans =" ";
     int k = 0;
 
-    for(int i=0; i<sz(t); i++){
+    for(int i=1; i<sz(t); i++){
     	while(s[k]<=t[i] && k<sz(s)){
     		ans += s[k];
     		k++;
     	}
 
     	ans += t[i];
+    	if(i==sz(t)-1 && k<sz(s)){
+    		while(k<sz(s)){
+    			ans += s[k];
+    			k++;
+    		}
+    	}
     }
 
-    for(int i=2; i<sz(ans); i++){
+    if(sz(t)==1){
+    	for(auto ch:s) cout << ch;
+    	cout << endl;
+    	return;
+    }
+
+    for(int i=1; i<sz(ans); i++){
     	cout << ans[i];
     }
     cout << endl;
