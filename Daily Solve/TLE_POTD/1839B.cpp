@@ -22,19 +22,42 @@ void solve(){
     	return a.second>b.second;
     });
 
+
     int x = 0;
     ll ans = 0;
     int tmp = 0;
+    int last = -1;
+
+    map<int,int> mp;
     for(int i=0; i<n; i++){
-    	if(v[i].first>tmp){
+    	if(v[i].first==last){
+    		continue;
+    	}
+    	tmp = 0;
+    	for(auto it=mp.begin(); it!=mp.end(); ){
+    		if(it->first<=x){
+    			tmp += it->second;
+    			it = mp.erase(it);
+    		}
+    		else{
+    			break;
+    		}
+    	}
+    	x = x-tmp;
+
+    	if(v[i].first>x){
     		ans += v[i].second;
     		x++;
-    		tmp = x;
+    		mp[v[i].first]++;
+
+    		if(v[i].first==x){
+    			last = v[i].first;
+    		}
     	}
     	else{
-    		tmp = x;
-    		x = 0;
+    		last = v[i].first;
     	}
+    	
     }
 
     cout << ans << endl;
